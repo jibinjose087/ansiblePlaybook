@@ -1,0 +1,41 @@
+---
+# deploy.yml includes deployment stuffs
+
+# Roles defined for Tmanserver application
+- hosts: dev_tman
+  remote_user: vagrant
+  become: true
+  roles:
+    - { role: tman, when: app_name == "tmanserver" }
+
+- hosts: stage_tman
+  remote_user: vagrant
+  become: true
+  roles:
+    - { role: tman, when: app_name == "tmanserver" }
+
+- hosts: prod_tman
+  remote_user: vagrant
+  become: true
+  roles:
+    - { role: tman, when: app_name == "tmanserver" }
+
+
+# Roles defined for pplservice application
+- hosts: dev_ppl
+  remote_user: vagrant
+  become: true
+  roles:
+    - { role: ppl, when: app_name == "pplservice" }
+
+- hosts: stage_ppl
+  remote_user: vagrant
+  become: true
+  roles:
+    - { role: ppl, when: app_name == "pplservice" }
+
+- hosts: prod_ppl
+  remote_user: vagrant
+  become: true
+  roles:
+    - { role: ppl, when: app_name == "pplservice" }

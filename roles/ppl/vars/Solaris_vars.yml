@@ -1,0 +1,36 @@
+---
+# vars file for common
+
+#Build description
+branch_name: master
+BUILD: '{{ build_no }}'
+BRANCH: '{{ branch_name }}'
+BUILD_NAME: 'BUILD_{{BUILD}}'
+BUILD_FILE: '{{ APP }}_{{ BUILD_NAME }}.zip'
+build: BUILD
+
+#SVN description
+SVN_EXPORT_DIR: '/tmp/{{ APP }}'
+SVN_TRUNK: '{{ svn_trunk_url }}'
+SVN_SOURCE: '{{ SVN_TRUNK }}/{{ BUILD_FILE }}'
+
+#Temp directory and file description
+TEMP_DIR: '/tmp/{{ APP }}'
+TEMP_DEPLOY_DIR: '/tmp/{{ APP }}/tempdeploy'
+TEMP_DEPLOY_CONFIRMATION_FILE: '{{ TEMP_DEPLOY_DIR }}/deploy/bin/build_file.txt'
+log_file_ansible: '/tmp/ansible.log'
+
+#Start and Stop job description
+start_job:
+stop_job:
+AUTOSERV: UA1
+AUTOSYS:
+AUTO_SYS_FILE:
+AUTOUSER:
+
+#Extra vars description
+process_name: '{{ PROCESS_NAME }}'
+mail_port: '{{ MAIL_PORT }}'
+java_loc: '{{ APP_HOME }}/java'
+app_port: '{{ APP_PORT }}'
+
